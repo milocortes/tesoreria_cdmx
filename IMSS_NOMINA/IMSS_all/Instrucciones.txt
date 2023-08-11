@@ -1,0 +1,4 @@
+Aquí debería de haber archivos del IMSS, peor son muy pesados.
+
+Para bajarlos hay que ingresar a la página 
+http://datos.imss.gob.mx/group/asegurados y bajar los datos deseados.
