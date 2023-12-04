@@ -1,0 +1,5 @@
+﻿COLUMNA,DESCRIPCION,TIPO_DATO,LONGITUD,CODIGO_VALIDO
+ANIO,Periodo anual de la información. Se utiliza Año.,Int,,2008 a 2023
+MES,Periodo mensual de la información. Se utiliza Mes.,Varchar,20,Enero a Diciembre
+IGRESE,Índice Global de Remuneraciones de los Sectores Económicos.,Numeric,"3,16",0.0 - 999.9999999999999999
+ESTATUS,"Descripción de estatus de los datos.El estatus de la información puede ser : Cifras Definitivas, Cifras Revisadas, Cifras Preliminares.",Varchar,100,"Cifras definitivas,Cifras revisadas,Cifras preliminares,Cifras ajustadas"

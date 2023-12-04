@@ -1,0 +1,59 @@
+﻿CODIGO_ACTIVIDAD,DESCRIPCION_ACTIVIDAD
+43,Comercio al por mayor
+431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco"
+4311,Comercio al por mayor de abarrotes y alimentos
+4312,"Comercio al por mayor de bebidas, hielo y tabaco"
+432,Comercio al por mayor de productos textiles y calzado
+4321,Comercio al por mayor de productos textiles y calzado
+433,"Comercio al por mayor de productos farmacéuticos, de perfumería, artículos para el esparcimiento, electrodomésticos menores y aparatos de línea blanca"
+4331,Comercio al por mayor de productos farmacéuticos
+4332,"Comercio al por mayor de artículos de perfumería, cosméticos y joyería"
+4333,"Comercio al por mayor de discos, juguetes y artículos deportivos"
+4334,"Comercio al por mayor de artículos de papelería, libros, revistas y periódicos"
+4335,Comercio al por mayor de electrodomésticos menores y aparatos de línea blanca
+434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho"
+4341,Comercio al por mayor de materias primas agropecuarias y forestales
+4342,Comercio al por mayor de materias primas para la industria
+4343,Comercio al por mayor de materiales de desecho
+435,"Comercio al por mayor de maquinaria, equipo y mobiliario para actividades agropecuarias, industriales, de servicios y comerciales, y de otra maquinaria y equipo de uso general"
+4351,"Comercio al por mayor de maquinaria y equipo agropecuario, forestal y para la pesca"
+4352,Comercio al por mayor de maquinaria y equipo para la industria
+4353,Comercio al por mayor de maquinaria y equipo para los servicios y para actividades comerciales
+4354,"Comercio al por mayor de mobiliario y equipo de cómputo y de oficina, y de otra maquinaria y equipo de uso general"
+436,"Comercio al por mayor de camiones y de partes y refacciones nuevas para automóviles, camionetas y camiones"
+4361,"Comercio al por mayor de camiones y de partes y refacciones nuevas para automóviles, camionetas y camiones"
+437,Intermediación de comercio al por mayor
+4371,"Intermediación de comercio al por mayor, excepto a través de Internet y de otros medios electrónicos"
+4372,Intermediación de comercio al por mayor exclusivamente a través de Internet y otros medios electrónicos
+46,Comercio al por menor
+461,"Comercio al por menor de abarrotes, alimentos, bebidas, hielo y tabaco"
+4611,Comercio al por menor de abarrotes y alimentos
+4612,"Comercio al por menor de bebidas, hielo y tabaco"
+462,Comercio al por menor en tiendas de autoservicio y departamentales
+4621,Comercio al por menor en tiendas de autoservicio
+4622,Comercio al por menor en tiendas departamentales
+463,"Comercio al por menor de productos textiles, bisutería, accesorios de vestir y calzado"
+4631,"Comercio al por menor de productos textiles, excepto ropa"
+4632,"Comercio al por menor de ropa, bisutería y accesorios de vestir"
+4633,Comercio al por menor de calzado
+464,Comercio al por menor de artículos para el cuidado de la salud
+4641,Comercio al por menor de artículos para el cuidado de la salud
+465,"Comercio al por menor de artículos de papelería, para el esparcimiento y otros artículos de uso personal"
+4651,Comercio al por menor de artículos de perfumería y joyería
+4652,Comercio al por menor de artículos para el esparcimiento
+4653,"Comercio al por menor de artículos de papelería, libros, revistas y periódicos"
+4659,"Comercio al por menor de mascotas, regalos, artículos religiosos, desechables, artesanías y otros artículos de uso personal"
+466,"Comercio al por menor de enseres domésticos, computadoras, artículos para la decoración de interiores y artículos usados"
+4661,Comercio al por menor de muebles para el hogar y otros enseres domésticos
+4662,"Comercio al por menor de mobiliario, equipo y accesorios de cómputo, teléfonos y otros aparatos de comunicación"
+4663,Comercio al por menor de artículos para la decoración de interiores
+4664,Comercio al por menor de artículos usados
+467,"Comercio al por menor de artículos de ferretería, tlapalería y vidrios"
+4671,"Comercio al por menor de artículos de ferretería, tlapalería y vidrios"
+468,"Comercio al por menor de vehículos de motor, refacciones, combustibles y lubricantes"
+4681,Comercio al por menor de automóviles y camionetas
+4682,"Comercio al por menor de partes y refacciones para automóviles, camionetas y camiones"
+4683,Comercio al por menor de motocicletas y otros vehículos de motor
+4684,"Comercio al por menor de combustibles, aceites y grasas lubricantes"
+469,"Comercio al por menor exclusivamente a través de Internet, y catálogos impresos, televisión y similares"
+4691,"Comercio al por menor exclusivamente a través de Internet, y catálogos impresos, televisión y similares"

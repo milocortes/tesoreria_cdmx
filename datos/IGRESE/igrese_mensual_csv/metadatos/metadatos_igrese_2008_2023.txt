@@ -1,0 +1,31 @@
+﻿
+identifier: DCAT-MEX-INEGI-IGRESE-2008-2023
+
+title: Índice Global de Remuneraciones de los Sectores Económicos. IGRESE. 2008-2023, cifras preliminares al mes de Febrero.
+
+description: El IGRESE, tiene como objetivo representar una aproximación a las remuneraciones de los sectores no agropecuarios, mostrar la evolución que registra esta variable para la economía en su conjunto y servir como insumo para el análisis, seguimiento y toma de decisiones de los diversos sectores de la sociedad.        
+Nota general Febrero 2023: La Tasa de No Respuesta de las Encuestas Económicas Nacionales que se consideran para la integración de los Índices Globales de Personal y Remuneraciones de los Sectores Económicos (IGPERSE), correspondiente a febrero de 2023, registró porcentajes apropiados conforme al diseño estadístico de las encuestas, lo que permitió la generación de estadísticas con niveles altos de cobertura y precisión estadística para su integración en los índices globales del mes de referencia.
+
+Nota aclaratoria: El personal ocupado reportado en este Programa Estadístico es conceptualmente diferente (ver metadatos) a la definición de puestos de trabajo afiliados al Instituto Mexicano del Seguro Social.
+
+modified: 2023-04-27
+
+publisher: Instituto Nacional de Estadística y Geografía, INEGI
+
+mbox: atencion.usuarios@inegi.org.mx
+
+license: https://www.inegi.org.mx/inegi/terminos.html
+
+dataDictionary: 
+
+keyword: "IGRESE", "índice global de remuneraciones de los sectores económicos", "remuneraciones"
+
+contactPoint: Mtro. J. Armando Aguiar Rodríguez, 800 111 4634
+
+temporal: 2008-01-2023-02
+
+spatial: Estados Unidos Mexicanos
+
+accrualPeriodicity: Mensualmente
+
+distribution: http://www.inegi.org.mx/programas/igrese/2013/

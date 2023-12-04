@@ -1,0 +1,44 @@
+﻿
+identifier: MEX-INEGI.EEC3.02-EMEC-2023
+
+title: Encuesta Mensual sobre Empresas Comerciales (EMEC). Serie 2013, cifras preliminares al mes de Febrero.
+
+description: INEGI. Encuesta Mensual sobre Empresas Comerciales (EMEC). Serie 2013. SNIEG. Información de Interés Nacional. En el contexto del Cambio de Año Base a 2013 de las Encuestas Económicas Nacionales, a partir del mes de mayo de 2019 se dieron a conocer las nuevas series de las encuestas mensuales de Empresas Constructoras, Industrias Manufactureras, Comercio y Servicios Privados no Financieros, así como la de Opinión Empresarial que cubre los cuatro sectores. En este sentido, se darán a conocer tanto las cifras absolutas, índices (2013 = 100) y los indicadores de opinión, correspondientes a la nueva serie. 
+Dicha información se encuentra disponible en el sitio del INEGI en Internet.  
+OBJETIVO GENERAL:  Generar información estadística básica sobre la actividad económica del sector comercio que muestre su dinámica y el comportamiento económico de coyuntura de las principales variables del comercio interior del país, y servir de insumo para la generación del Producto Interno Bruto y de indicadores económicos sobre el empleo, el consumo intermedio, demanda final y la productividad laboral, que a su vez apoye la toma de decisiones en materia de política económica y de comercio interior.  
+Encuesta de interés nacional a partir de mayo de 2016, se decreta que la Encuesta Mensual sobre Empresas Comerciales (EMEC). Serie 2013 es Información de Interés Nacional en virtud de que cumplen con los cuatro criterios establecidos en el artículo 78 de la Ley del Sistema Nacional de Información Estadística y Geográfica.  
+PRECISIONES SOBRE LOS RESULTADOS:  Los campos vacíos equivalen al valor ND representa lo siguiente:  -La información correspondiente a esta categoría, no está disponible por efectos del principio de confidencialidad conforme el artículo 38 de la Ley del Sistema Nacional de Información Estadística y Geográfica.  
+Unidad de medida: Índice tipo Laspeyres, de base y ponderación fija (ponderadores relativos censales). Periodo base 2013: Periodicidad mensual diseño, conceptual Población objetivo Empresas comerciales. 
+ Cobertura temática:   
+-Ingresos totales por suministro de bienes y servicios. 
+ -Gastos totales por consumo de bienes y servicios (sólo nacional). 
+ -Compras de mercancías para reventa (sólo entidades). 
+ -Personal ocupado total 
+-Remuneraciones totales.  
+-Remuneraciones medias por persona ocupada.  
+Clasificador: El clasificador utilizado es el SCIAN 2013. Cobertura temporal: Se generaron tabulados con resultados de los siguientes periodos:  Sector, Subsector y Rama, SCIAN 2007. Nacional, por Entidad federativa y Sector de actividad comercial, SCIAN 2007, a partir de enero de 2008 a febrero 2019.  Se cuenta con disponibilidad digital de la siguiente serie:   Sector, Subsector y Rama, SCIAN 2013. Nacional y, por Entidad federativa Sector de actividad comercial, SCIAN 2013, a partir de enero 2008.  Cobertura geográfica nacional y 32 Entidades federativas. DISEÑO DE LA MUESTRA:  El diseño muestral se caracterizó por ser no probabilístico con una cobertura en ingresos específica para el sector comercio al por mayor, y probabilístico para los dominios de estudio del sector comercio al por menor. 
+Marco de la muestra: El marco muestral se conformó por todas las empresas que integran los sectores comerciales, con base en el Marco Estadístico Nacional de Unidades Económicas (MENUE), el cual se alimenta del Registro Estadístico de Negocios de México (RENEM), versión noviembre de 2017, y de los resultados definitivos de los Censos Económicos 2014.  Variables de diseño Ingresos y Personal ocupado.  Tamaño de la muestra entre 8300 y 8560 empresas; las cifras varían en función de altas de empresas para mantener coberturas de dominios de estudio y, bajas de empresas por situaciones de mercado.  Para mayores detalles sobre la Encuesta Mensual sobre Empresas Comerciales (EMEC). Serie 2013 puede consultar la página del INEGI en Internet en el link: https://www.inegi.org.mx/programas/emec/2013/
+
+Nota al usuario, Febrero 2023: La Tasa de no respuesta de la Encuesta Mensual sobre Empresas Comerciales (EMEC), correspondiente al mes de febrero de 2023 registró porcentajes apropiados conforme al diseño estadístico de la encuesta, lo que permitió la generación de estadísticas con niveles altos de precisión.
+
+modified: 2023-04-20
+
+publisher: Instituto Nacional de Estadística y Geografía, INEGI
+
+mbox: atencion.usuarios@inegi.org.mx
+
+license: https://www.inegi.org.mx/inegi/terminos.html
+
+dataDictionary: https://www.inegi.org.mx/rnm/index.php/catalog/853/data-dictionary
+
+keyword: "número de establecimientos", "días trabajados", "jornada laboral", "personal", "remuneraciones", "compras", "gastos", "ventas", "ingresos”
+
+contactPoint: Mtro. J. Armando Aguiar Rodríguez, 800 111 4634
+
+temporal: 2008-01-2023-02
+
+spatial: Estados Unidos Mexicanos
+
+accrualPeriodicity: Mensualmente
+
+distribution: https://www.inegi.org.mx/programas/emec/2013/
