@@ -16,7 +16,10 @@ from tqdm import tqdm
 
 from requests_ip_rotator import ApiGateway
 
-path = Path('/home/milo/Documents/egap/BID/tesoreria/scraping')
+import os 
+
+FILE_PATH = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(FILE_PATH, "datos")
 
 RULES_SEARCH_PAGE = {
     'url':{'tag':'a','get': 'href'},
@@ -179,7 +182,7 @@ if __name__ == "__main__":
     gateway = ApiGateway("https://www.airbnb.com")
     gateway.start()
 
-    with open("colonias_priorizadas.txt","r") as file:
+    with open(os.path.join(DATA_PATH, "colonias_priorizadas.txt"),"r") as file:
         colonias_priorizadas = [i.replace("\n","") for i in file.readlines()]
     file.close()
 
@@ -187,7 +190,7 @@ if __name__ == "__main__":
     session = requests.Session()
     session.mount("https://www.airbnb.com", gateway)
 
-    colonias = pd.read_csv(path/'coloniascdmx.csv')
+    colonias = pd.read_csv(os.path.join(DATA_PATH, 'coloniascdmx.csv'))
 
     colonias_resto = set(colonias.nombre) - set(colonias_priorizadas)
 
