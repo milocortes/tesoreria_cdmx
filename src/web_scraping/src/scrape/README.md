@@ -40,4 +40,11 @@ Los programas se ejecutan desde linea de comandos. Por ejemplo:
 ```bash
 python AIRBNB_ip_pool_aws.py
 ```
+El scrape de Aribnb lo hace por colonia, el scrape de Booking busca en toda la ciudad de México por fines de semana, las fechas se tienen que cambiar. Hoteles.com busca por alcaldías y es el único código que no necesita que brinque el IP. 
+
+ADVERTENCIA: los tres scrapes corren al día de hoy. Hay que revisarlos periodicamente para asegurarse que la estructura del html no ha cambiado, si esta estructura cambia hay que adaptarlos para que sigan extrayendo la información pertinente. 
+
+## Estimación: 
+El archivo que se encuentra en mapas/mapa_folium.py, limpia todos los datos que se obtuvieron del scrape. Posterioremente los junta todos y crea el mapa interactivo, donde se pueden observar los airbnbs, hoteles y bookings. En este mismo archivo hay una estimación simple de la posible recaudación. 
+
 
