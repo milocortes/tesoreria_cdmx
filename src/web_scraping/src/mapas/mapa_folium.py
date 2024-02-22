@@ -464,7 +464,7 @@ m.save(path/"prueba2.html")
 
 
 
-# ## Graficas de esta madre: 
+# ## Graficas de esto: 
 # colonias_inside['tipo'].value_counts().plot(kind='bar',
 #                                     figsize = (14,8),
 #                                     title = "Tipos de Alojamiento")  
@@ -546,6 +546,172 @@ m.save(path/"prueba2.html")
 # all_dta.to_csv(path/'datos_booking_airbnb.csv')
 
 
+####### ------------- ########## --------------------------- ##########
+#######     ESTIMACION       ######
+
+zonas_turisticas = pd.read_csv(path/'zonas_turisticas.csv')
+ocupacion = pd.read_csv(path/'ocupacion.csv')
+
+#match con cdmx 
+# delegaciones = {'Gustavo A. Madero': 5, 'Iztacalco': 6, 'Venustiano Carranza': 17,
+#        'Cuauhtémoc': 15, 'Álvaro Obregón': 10, 'Miguel Hidalgo': 16, 
+#        'Coyoacán': 3, 'Benito Juárez': 14, 'Iztapalapa': 7, 
+#        'Azcapotzalco': 2, 'Cuajimalpa de Morelos': 4, 'La Magdalena Contreras': 8, 
+#        'Tlalpan': 12,'Milpa Alta': 9, 'Tláhuac': 11, 'Xochimilco': 13}
+
+# zonas_turisticas['cve_alc'] = zonas_turisticas['ALCALDÍA'].map(delegaciones)
+zonas_turisticas = zonas_turisticas[['COLONIA', 'ZONA', 'cve_alc']]
+
+cdmx_df = cdmx[['nombre', 'cve_alc', 'cve_col']]
+cdmx_df['nombre'] = cdmx_df['nombre'].str.lower().str.strip()
+cdmx_df['nombre'] = cdmx_df['nombre'].str.replace(r'[^\w\s]+', ' ').str.strip()
+
+zonas_turisticas['COLONIA'] = [unidecode.unidecode(x) for x in
+                               zonas_turisticas['COLONIA']]
+zonas_turisticas['COLONIA'] = zonas_turisticas['COLONIA'].str.replace(r'[^\w\s]+', ' ')
+zonas_turisticas['COLONIA'] = zonas_turisticas['COLONIA'].str.lower().str.strip()
+
+zonas_turisticas.drop_duplicates(inplace = True)
+
+
+
+def comparar_nombres(nombre, cve_alc):
+    min_zt = cdmx_df[cdmx_df.cve_alc == cve_alc].reset_index()
+    distances = []
+    for colonia in min_zt.nombre: 
+        distances.append(jellyfish.levenshtein_distance(nombre, colonia))
+    minimo = pd.Series(distances).idxmin()
+    best_match_name = min_zt.iloc[minimo]['nombre']
+    best_match_distance = distances[minimo]
+    clave_colonia = min_zt.iloc[minimo]['cve_col']
+    return best_match_name, best_match_distance, clave_colonia
+    
+
+with ThreadPoolExecutor() as executor:
+    results = list(executor.map(comparar_nombres, zonas_turisticas['COLONIA'], 
+                                zonas_turisticas.cve_alc))
+ 
+     
+zonas_turisticas['nombre'], zonas_turisticas['number_po'], zonas_turisticas['cve_col'] = zip(*results)
+zonas_turisticas = zonas_turisticas[zonas_turisticas.number_po == 0]
+zonas_turisticas = zonas_turisticas[[ 'nombre','ZONA', 'cve_col']].drop_duplicates()
+
+# results = best_match_zt(missing, possible_matches)
+
+all_hotels.drop_duplicates(inplace = True)
+all_hotels['fuente'] = 'Hoteles'
+hoteles = all_hotels[['name','lat', 'lng','tipo', 'bedrooms', 'precio_mx', 'nombre',
+                       'cve_alc', 'cve_col', 'rooms', 'fuente']]
+hoteles = hoteles[hoteles.tipo.notnull()]
+hoteles.drop_duplicates(inplace = True)
+hoteles = hoteles[['lat', 'lng', 'tipo', 'bedrooms', 'precio_mx', 'nombre',
+                       'cve_alc', 'cve_col', 'rooms', 'fuente']]
+
+airbnb_inside.drop_duplicates(inplace = True)
+airbnb_inside['fuente'] = 'Airbnb'
+airbnb = airbnb_inside[['lat', 'lng', 'tipo', 'bedrooms', 'precio_mx', 'nombre', 
+                 'cve_alc', 'cve_col', 'fuente']]
+all_units = pd.concat([hoteles, airbnb])
+
+
+all_units_zt = pd.merge(all_units, zonas_turisticas, how = 'left',
+                        on = ['cve_col'])
+
+ocupacion['ZONA'] = ocupacion['ZONA'].str.strip()
+all_units_zt = pd.merge(all_units_zt, ocupacion, how = 'left',
+                        on = 'ZONA')
+all_units_zt = all_units_zt[all_units_zt.ZONA.notnull()]
+
+### SACAR el la possible income 
+all_units_zt['cuartos'] = [room if tipo == 'Hoteles' else cuarto for 
+                           room, tipo, cuarto in zip(all_units_zt.rooms, 
+                                                     all_units_zt.fuente,
+                                                     all_units_zt.bedrooms)]
+
+all_units_zt.fillna(1, inplace = True)
+
+all_units_zt = all_units_zt[['lat', 'lng', 'tipo', 'bedrooms', 
+                             'precio_mx', 'cve_alc', 'cve_col',
+                             'fuente', 'nombre_y', 'ZONA',
+                             'OCUPACION_PROMEDIO', 'cuartos']]
+all_units_zt.rename(columns = {'nombre_y':'colonia'}, inplace = True)
+all_units_zt_c1 = all_units_zt.copy()
+all_units_zt_c2 = all_units_zt.copy()
+all_units_zt_c3 = all_units_zt.copy()
+all_units_zt_c4 = all_units_zt.copy()
+
+all_units_zt['tipo_ocupación'] = 'Por Zona Turistica'
+all_units_zt_c1['tipo_ocupación'] = 'Ocupacion mas baja'
+all_units_zt_c1['OCUPACION_PROMEDIO'] = 63
+all_units_zt_c2['tipo_ocupación'] = 'Ocupacion mas alta'
+all_units_zt_c2['OCUPACION_PROMEDIO'] = 80
+all_units_zt_c3['tipo_ocupación'] = 'Ocupacion al 70'
+all_units_zt_c3['OCUPACION_PROMEDIO'] = 70
+all_units_zt_c4['tipo_ocupación'] = 'Ocupacion al 75'
+all_units_zt_c4['OCUPACION_PROMEDIO'] = 75
+
+
+all_units = pd.concat([all_units_zt, all_units_zt_c1,
+                       all_units_zt_c2, all_units_zt_c3, 
+                       all_units_zt_c4])
+
+all_units['OCUPACION_PROMEDIO'] = all_units['OCUPACION_PROMEDIO']/100
+all_units['INCOME_MONTHLY'] = all_units['OCUPACION_PROMEDIO']*all_units['cuartos']*all_units['precio_mx']*30
+
+
+
+all_units['RECAUDACION_X_HOTEL'] = [income*0.035 if fuente == 'Hoteles' else 
+                                    income*0.05 for income, fuente in 
+                                    zip(all_units.INCOME_MONTHLY, 
+                                        all_units.fuente)]
+
+
+
+
+# all_units_zt = all_units_zt[['lat', 'lng', 'tipo', 'bedrooms', 'precio_mx',
+#                              'cve_alc', 'cve_col',
+#                                     'rooms', 'fuente', 'nombre_y', 'ZONA', 'OCUPACION_PROMEDIO',
+#                                     'HOTELES_OFICIAL', 'CUARTOS_OFICIAL', 'cuartos', 'INCOME_MONTHLY',
+#                                     'RECAUDACION_X_HOTEL']]
+
+all_units.to_csv(path/'datos_hoteles_airbnb.csv')
+
+
+
+# y = all_units_zt.groupby(['ZONA','fuente'], group_keys=True)['RECAUDACION_X_HOTEL'].sum()
+# y = y.to_frame().reset_index()
+# y = pd.pivot_table(y, values='RECAUDACION_X_HOTEL', index=['ZONA'], 
+#                    columns='fuente')
+
+
+# ## HACER UNA GRAFICAS:
+    
+# x_zona_turistica = pd.read_csv(path/'por_zona_turistica.csv')    
+    
+# x_hoteles = x_zona_turistica[['ZONA', 'HOTELES',  'HOTELES_OFICIAL']]
+# x_hoteles = pd.melt(x_hoteles, id_vars = 'ZONA', 
+#                     value_vars = ['HOTELES', 'HOTELES_OFICIAL'])
+# g = sns.catplot(
+#     data=x_hoteles, kind="bar",
+#     x="ZONA", y="value", hue="variable", alpha=.6)
+# g.set_xticklabels(rotation=90)
+
+
+# precios = x_zona_turistica[['ZONA', 'PRECIO_HOTELES','PRECIO_AIRBNB']]
+# precios = pd.melt(precios, id_vars = 'ZONA', 
+#                   value_vars = ['PRECIO_HOTELES','PRECIO_AIRBNB'])
+
+# g = sns.catplot(
+#     data=precios, kind="bar",
+#     x="ZONA", y="value", hue="variable", alpha=.6)
+# g.set_xticklabels(rotation=90)
+
+
+
+# g = sns.catplot(
+#     data=x_zona_turistica, kind="bar",
+#     x="ZONA", y="Recuadacion_Hoteles", alpha=.6)
+# g.set_xticklabels(rotation=90)
 
 
 
